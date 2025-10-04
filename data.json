@@ -1,0 +1,506 @@
+{
+  "experiments": [
+    {
+      "id": "fungi-growth-1",
+      "type": "experiment",
+      "title": "Transcriptional Adaptation of Yeast (Saccharomyces cerevisiae) to Hypogravity Conditions",
+      "summary":
+        "Detailed analysis of gene expression and metabolic pathway changes in yeast exposed to simulated microgravity, focusing on core stress response mechanisms.",
+      "description":
+        "Comprehensive study of how the single-celled fungus *Saccharomyces cerevisiae* adapts its growth patterns, gene expression, and energy utilization in zero-gravity environments, supporting long-term biological stability in space.",
+      "tags": ["Yeast", "Microgravity", "Transcriptomics", "ISS", "2023"],
+      "category": "microbiology",
+      "organism": "fungi",
+      "mission": "iss",
+      "condition": "microgravity",
+      "year": "2023",
+      "status": "Completed",
+      "duration": "45 days",
+      "location": "ISS Kibo Module",
+      "investigator": "Smith J",
+      "institution": "NASA Ames Research Center",
+      "funding": "NASA Grant NNX17AE02G",
+      "relevanceScore": 88,
+      "links": {
+        "related": ["microbial-symbiosis-1", "yeast-radiation-2"],
+        "dependencies": ["microgravity-effects-1"],
+        "publications": ["https://pubmed.ncbi.nlm.nih.gov/PMC1234567/"],
+        "datasets": ["https://example.com/data/yeast-transcriptome-2023"]
+      },
+      "graphData": {
+        "size": 15,
+        "connections": 5
+      }
+    },
+    {
+      "id": "plant-growth-2",
+      "type": "experiment",
+      "title": "Advanced Plant Growth Systems for Long-Duration Space Missions",
+      "summary":
+        "Investigation of optimal growing conditions for various crop species in controlled environment agriculture systems aboard the ISS.",
+      "description":
+        "This experiment evaluates multiple plant species including lettuce, tomatoes, and peppers using NASA's Advanced Plant Habitat to determine best practices for sustainable food production in space.",
+      "tags": ["Plants", "Agriculture", "Food Production", "ISS", "2024"],
+      "category": "plant-studies",
+      "organism": "plants",
+      "mission": "iss",
+      "condition": "microgravity",
+      "year": "2024",
+      "status": "In Progress",
+      "duration": "180 days",
+      "location": "ISS Columbus Module",
+      "investigator": "Johnson M",
+      "institution": "Kennedy Space Center",
+      "funding": "NASA Grant NNX18AB12G",
+      "relevanceScore": 92,
+      "links": {
+        "related": ["plant-nutrition-3", "led-systems-4"],
+        "dependencies": ["plant-growth-1"],
+        "publications": ["https://pubmed.ncbi.nlm.nih.gov/PMC2345678/"],
+        "datasets": ["https://example.com/data/plant-growth-2024"]
+      },
+      "graphData": {
+        "size": 18,
+        "connections": 7
+      }
+    },
+    {
+      "id": "radiation-effects-3",
+      "type": "experiment",
+      "title": "Cellular Response to Cosmic Radiation in Mammalian Tissue",
+      "summary":
+        "Analysis of DNA damage and repair mechanisms in mammalian cells exposed to galactic cosmic rays and solar particle events.",
+      "description":
+        "Long-term study examining how cosmic radiation affects cellular processes, with focus on cancer risk assessment and development of protective countermeasures for astronauts.",
+      "tags": ["Radiation", "DNA", "Cancer", "ISS", "2023"],
+      "category": "human-studies",
+      "organism": "animals",
+      "mission": "iss",
+      "condition": "radiation",
+      "year": "2023",
+      "status": "Completed",
+      "duration": "365 days",
+      "location": "ISS Destiny Module",
+      "investigator": "Chen L",
+      "institution": "Johnson Space Center",
+      "funding": "NASA Grant NNX19CD34G",
+      "relevanceScore": 95,
+      "links": {
+        "related": ["dna-repair-5", "antioxidant-6"],
+        "dependencies": ["radiation-monitoring-1"],
+        "publications": ["https://pubmed.ncbi.nlm.nih.gov/PMC3456789/"],
+        "datasets": ["https://example.com/data/radiation-2023"]
+      },
+      "graphData": {
+        "size": 20,
+        "connections": 8
+      }
+    },
+    {
+      "id": "microbial-biofilm-4",
+      "type": "experiment",
+      "title": "Biofilm Formation Patterns in Microgravity Environments",
+      "summary": "Study of bacterial biofilm development and antibiotic resistance in space conditions.",
+      "description":
+        "Investigation of how microgravity affects bacterial colony formation, biofilm architecture, and antimicrobial susceptibility with implications for spacecraft hygiene and astronaut health.",
+      "tags": ["Bacteria", "Biofilm", "Antibiotics", "ISS", "2024"],
+      "category": "microbiology",
+      "organism": "bacteria",
+      "mission": "iss",
+      "condition": "microgravity",
+      "year": "2024",
+      "status": "In Progress",
+      "duration": "90 days",
+      "location": "ISS Kibo Module",
+      "investigator": "Rodriguez A",
+      "institution": "NASA Ames Research Center",
+      "funding": "NASA Grant NNX20EF56G",
+      "relevanceScore": 87,
+      "links": {
+        "related": ["antibiotic-resistance-7", "spacecraft-hygiene-8"],
+        "dependencies": ["microbial-growth-2"],
+        "publications": ["https://pubmed.ncbi.nlm.nih.gov/PMC4567890/"],
+        "datasets": ["https://example.com/data/biofilm-2024"]
+      },
+      "graphData": {
+        "size": 14,
+        "connections": 6
+      }
+    },
+    {
+      "id": "bone-density-5",
+      "type": "experiment",
+      "title": "Bone Density Loss and Countermeasures in Extended Microgravity",
+      "summary":
+        "Comprehensive analysis of skeletal system changes during long-duration spaceflight and evaluation of exercise protocols.",
+      "description":
+        "Multi-year study tracking bone mineral density changes in astronauts and testing various exercise regimens and nutritional interventions to mitigate bone loss.",
+      "tags": ["Bone", "Exercise", "Nutrition", "ISS", "2022"],
+      "category": "human-studies",
+      "organism": "animals",
+      "mission": "iss",
+      "condition": "microgravity",
+      "year": "2022",
+      "status": "Completed",
+      "duration": "540 days",
+      "location": "ISS Multiple Modules",
+      "investigator": "Williams K",
+      "institution": "Johnson Space Center",
+      "funding": "NASA Grant NNX16GH78G",
+      "relevanceScore": 94,
+      "links": {
+        "related": ["muscle-atrophy-9", "calcium-metabolism-10"],
+        "dependencies": ["exercise-protocols-3"],
+        "publications": ["https://pubmed.ncbi.nlm.nih.gov/PMC5678901/"],
+        "datasets": ["https://example.com/data/bone-density-2022"]
+      },
+      "graphData": {
+        "size": 19,
+        "connections": 9
+      }
+    },
+    {
+      "id": "plant-photosynthesis-6",
+      "type": "experiment",
+      "title": "Photosynthetic Efficiency Under LED Spectrum Optimization",
+      "summary":
+        "Testing various LED light spectra to maximize photosynthetic efficiency and crop yield in space agriculture systems.",
+      "description":
+        "Experimental evaluation of different wavelength combinations and light intensities to optimize plant growth rates and nutritional content for space-grown crops.",
+      "tags": ["Photosynthesis", "LED", "Agriculture", "ISS", "2024"],
+      "category": "plant-studies",
+      "organism": "plants",
+      "mission": "iss",
+      "condition": "controlled-environment",
+      "year": "2024",
+      "status": "In Progress",
+      "duration": "120 days",
+      "location": "ISS Columbus Module",
+      "investigator": "Park S",
+      "institution": "Kennedy Space Center",
+      "funding": "NASA Grant NNX21IJ90G",
+      "relevanceScore": 89,
+      "links": {
+        "related": ["plant-growth-2", "led-systems-4"],
+        "dependencies": ["light-spectrum-1"],
+        "publications": ["https://pubmed.ncbi.nlm.nih.gov/PMC6789012/"],
+        "datasets": ["https://example.com/data/photosynthesis-2024"]
+      },
+      "graphData": {
+        "size": 16,
+        "connections": 7
+      }
+    },
+    {
+      "id": "immune-system-7",
+      "type": "experiment",
+      "title": "Immune System Adaptation During Long-Duration Spaceflight",
+      "summary": "Longitudinal study of immune function changes in astronauts during extended missions.",
+      "description":
+        "Comprehensive immunological profiling examining T-cell function, antibody production, and inflammatory responses throughout multi-month space missions.",
+      "tags": ["Immunity", "T-cells", "Inflammation", "ISS", "2023"],
+      "category": "human-studies",
+      "organism": "animals",
+      "mission": "iss",
+      "condition": "microgravity",
+      "year": "2023",
+      "status": "Completed",
+      "duration": "180 days",
+      "location": "ISS Destiny Module",
+      "investigator": "Thompson R",
+      "institution": "Johnson Space Center",
+      "funding": "NASA Grant NNX19KL12G",
+      "relevanceScore": 91,
+      "links": {
+        "related": ["stress-response-11", "cytokine-12"],
+        "dependencies": ["immune-baseline-2"],
+        "publications": ["https://pubmed.ncbi.nlm.nih.gov/PMC7890123/"],
+        "datasets": ["https://example.com/data/immune-2023"]
+      },
+      "graphData": {
+        "size": 17,
+        "connections": 8
+      }
+    },
+    {
+      "id": "algae-bioreactor-8",
+      "type": "experiment",
+      "title": "Microalgae Cultivation for Oxygen Production and Carbon Sequestration",
+      "summary":
+        "Development of photobioreactor systems using microalgae for life support applications in space habitats.",
+      "description":
+        "Testing various microalgae species for optimal oxygen production, CO2 removal, and potential food/fuel production in closed-loop life support systems.",
+      "tags": ["Algae", "Life Support", "Oxygen", "ISS", "2024"],
+      "category": "microbiology",
+      "organism": "bacteria",
+      "mission": "iss",
+      "condition": "controlled-environment",
+      "year": "2024",
+      "status": "In Progress",
+      "duration": "150 days",
+      "location": "ISS Kibo Module",
+      "investigator": "Martinez C",
+      "institution": "NASA Ames Research Center",
+      "funding": "NASA Grant NNX22MN34G",
+      "relevanceScore": 90,
+      "links": {
+        "related": ["life-support-13", "carbon-cycle-14"],
+        "dependencies": ["bioreactor-design-1"],
+        "publications": ["https://pubmed.ncbi.nlm.nih.gov/PMC8901234/"],
+        "datasets": ["https://example.com/data/algae-2024"]
+      },
+      "graphData": {
+        "size": 15,
+        "connections": 6
+      }
+    },
+    {
+      "id": "fruit-fly-genetics-9",
+      "type": "experiment",
+      "title": "Genetic Expression Changes in Drosophila Across Multiple Generations",
+      "summary": "Multi-generational study of fruit flies examining genetic adaptations to space environment.",
+      "description":
+        "Long-term experiment tracking genetic changes, developmental patterns, and evolutionary adaptations in fruit fly populations bred entirely in microgravity.",
+      "tags": ["Genetics", "Evolution", "Drosophila", "ISS", "2023"],
+      "category": "animal-studies",
+      "organism": "animals",
+      "mission": "iss",
+      "condition": "microgravity",
+      "year": "2023",
+      "status": "Completed",
+      "duration": "270 days",
+      "location": "ISS Destiny Module",
+      "investigator": "Anderson B",
+      "institution": "NASA Ames Research Center",
+      "funding": "NASA Grant NNX18OP56G",
+      "relevanceScore": 86,
+      "links": {
+        "related": ["developmental-biology-15", "epigenetics-16"],
+        "dependencies": ["genetics-baseline-3"],
+        "publications": ["https://pubmed.ncbi.nlm.nih.gov/PMC9012345/"],
+        "datasets": ["https://example.com/data/drosophila-2023"]
+      },
+      "graphData": {
+        "size": 13,
+        "connections": 5
+      }
+    },
+    {
+      "id": "protein-crystallization-10",
+      "type": "experiment",
+      "title": "Microgravity Protein Crystallization for Drug Development",
+      "summary": "Growing high-quality protein crystals in microgravity for pharmaceutical research applications.",
+      "description":
+        "Utilizing microgravity conditions to produce larger, more ordered protein crystals enabling better structural analysis for drug design and disease research.",
+      "tags": ["Proteins", "Crystallization", "Pharmaceuticals", "ISS", "2024"],
+      "category": "microbiology",
+      "organism": "bacteria",
+      "mission": "iss",
+      "condition": "microgravity",
+      "year": "2024",
+      "status": "In Progress",
+      "duration": "60 days",
+      "location": "ISS Columbus Module",
+      "investigator": "Lee H",
+      "institution": "Marshall Space Flight Center",
+      "funding": "NASA Grant NNX23QR78G",
+      "relevanceScore": 93,
+      "links": {
+        "related": ["drug-development-17", "structural-biology-18"],
+        "dependencies": ["crystallization-methods-2"],
+        "publications": ["https://pubmed.ncbi.nlm.nih.gov/PMC0123456/"],
+        "datasets": ["https://example.com/data/protein-2024"]
+      },
+      "graphData": {
+        "size": 16,
+        "connections": 7
+      }
+    },
+    {
+      "id": "cardiovascular-adaptation-11",
+      "type": "experiment",
+      "title": "Cardiovascular System Remodeling in Microgravity",
+      "summary": "Study of heart function and blood vessel changes during extended spaceflight.",
+      "description":
+        "Comprehensive cardiovascular monitoring examining cardiac output, blood pressure regulation, and vascular remodeling in astronauts during long-duration missions.",
+      "tags": ["Cardiology", "Blood Pressure", "Heart", "ISS", "2023"],
+      "category": "human-studies",
+      "organism": "animals",
+      "mission": "iss",
+      "condition": "microgravity",
+      "year": "2023",
+      "status": "Completed",
+      "duration": "365 days",
+      "location": "ISS Multiple Modules",
+      "investigator": "Garcia M",
+      "institution": "Johnson Space Center",
+      "funding": "NASA Grant NNX20ST90G",
+      "relevanceScore": 92,
+      "links": {
+        "related": ["blood-flow-19", "cardiac-function-20"],
+        "dependencies": ["cardiovascular-baseline-4"],
+        "publications": ["https://pubmed.ncbi.nlm.nih.gov/PMC1234567/"],
+        "datasets": ["https://example.com/data/cardiovascular-2023"]
+      },
+      "graphData": {
+        "size": 18,
+        "connections": 8
+      }
+    },
+    {
+      "id": "root-development-12",
+      "type": "experiment",
+      "title": "Root Architecture and Nutrient Uptake in Microgravity",
+      "summary": "Analysis of plant root system development and mineral absorption efficiency in space conditions.",
+      "description":
+        "Detailed study of how microgravity affects root branching patterns, gravitropism, and nutrient transport mechanisms in various crop species.",
+      "tags": ["Roots", "Nutrients", "Plant Biology", "ISS", "2024"],
+      "category": "plant-studies",
+      "organism": "plants",
+      "mission": "iss",
+      "condition": "microgravity",
+      "year": "2024",
+      "status": "In Progress",
+      "duration": "90 days",
+      "location": "ISS Columbus Module",
+      "investigator": "Brown T",
+      "institution": "Kennedy Space Center",
+      "funding": "NASA Grant NNX21UV12G",
+      "relevanceScore": 88,
+      "links": {
+        "related": ["plant-growth-2", "gravitropism-21"],
+        "dependencies": ["root-systems-1"],
+        "publications": ["https://pubmed.ncbi.nlm.nih.gov/PMC2345678/"],
+        "datasets": ["https://example.com/data/roots-2024"]
+      },
+      "graphData": {
+        "size": 14,
+        "connections": 6
+      }
+    },
+    {
+      "id": "sleep-circadian-13",
+      "type": "experiment",
+      "title": "Circadian Rhythm Disruption and Sleep Quality in Space",
+      "summary": "Investigation of sleep patterns and circadian clock function during spaceflight.",
+      "description":
+        "Monitoring astronaut sleep quality, circadian gene expression, and testing light-based countermeasures to maintain healthy sleep-wake cycles in space.",
+      "tags": ["Sleep", "Circadian", "Neuroscience", "ISS", "2023"],
+      "category": "human-studies",
+      "organism": "animals",
+      "mission": "iss",
+      "condition": "microgravity",
+      "year": "2023",
+      "status": "Completed",
+      "duration": "180 days",
+      "location": "ISS Crew Quarters",
+      "investigator": "Wilson J",
+      "institution": "Johnson Space Center",
+      "funding": "NASA Grant NNX19WX34G",
+      "relevanceScore": 85,
+      "links": {
+        "related": ["melatonin-22", "light-therapy-23"],
+        "dependencies": ["sleep-monitoring-3"],
+        "publications": ["https://pubmed.ncbi.nlm.nih.gov/PMC3456789/"],
+        "datasets": ["https://example.com/data/sleep-2023"]
+      },
+      "graphData": {
+        "size": 12,
+        "connections": 5
+      }
+    },
+    {
+      "id": "fungal-pathogen-14",
+      "type": "experiment",
+      "title": "Fungal Pathogen Virulence in Spaceflight Conditions",
+      "summary": "Study of how microgravity affects fungal pathogen behavior and infection potential.",
+      "description":
+        "Examining changes in fungal virulence factors, growth rates, and antifungal drug susceptibility in space environment with implications for crew health.",
+      "tags": ["Fungi", "Pathogens", "Infection", "ISS", "2024"],
+      "category": "microbiology",
+      "organism": "fungi",
+      "mission": "iss",
+      "condition": "microgravity",
+      "year": "2024",
+      "status": "In Progress",
+      "duration": "75 days",
+      "location": "ISS Kibo Module",
+      "investigator": "Davis R",
+      "institution": "NASA Ames Research Center",
+      "funding": "NASA Grant NNX22YZ56G",
+      "relevanceScore": 84,
+      "links": {
+        "related": ["microbial-biofilm-4", "antifungal-24"],
+        "dependencies": ["fungal-culture-2"],
+        "publications": ["https://pubmed.ncbi.nlm.nih.gov/PMC4567890/"],
+        "datasets": ["https://example.com/data/fungal-2024"]
+      },
+      "graphData": {
+        "size": 13,
+        "connections": 5
+      }
+    },
+    {
+      "id": "tissue-engineering-15",
+      "type": "experiment",
+      "title": "3D Tissue Engineering in Microgravity for Regenerative Medicine",
+      "summary": "Development of three-dimensional tissue constructs using microgravity conditions.",
+      "description":
+        "Creating complex tissue structures including cardiac tissue and organoids in microgravity, leveraging the absence of gravity for improved cell organization.",
+      "tags": ["Tissue", "Regeneration", "3D Culture", "ISS", "2024"],
+      "category": "human-studies",
+      "organism": "animals",
+      "mission": "iss",
+      "condition": "microgravity",
+      "year": "2024",
+      "status": "In Progress",
+      "duration": "120 days",
+      "location": "ISS Destiny Module",
+      "investigator": "Kumar P",
+      "institution": "Marshall Space Flight Center",
+      "funding": "NASA Grant NNX23AB90G",
+      "relevanceScore": 96,
+      "links": {
+        "related": ["stem-cells-25", "organoids-26"],
+        "dependencies": ["tissue-culture-4"],
+        "publications": ["https://pubmed.ncbi.nlm.nih.gov/PMC5678901/"],
+        "datasets": ["https://example.com/data/tissue-2024"]
+      },
+      "graphData": {
+        "size": 20,
+        "connections": 9
+      }
+    },
+    {
+      "id": "wheat-cultivation-16",
+      "type": "experiment",
+      "title": "Wheat Growth and Grain Production for Space Agriculture",
+      "summary": "Complete life cycle study of wheat from seed to harvest in space conditions.",
+      "description":
+        "First attempt to grow wheat through complete reproductive cycle in space, evaluating grain yield, nutritional quality, and viability for long-term space missions.",
+      "tags": ["Wheat", "Grain", "Agriculture", "ISS", "2024"],
+      "category": "plant-studies",
+      "organism": "plants",
+      "mission": "iss",
+      "condition": "microgravity",
+      "year": "2024",
+      "status": "Planned",
+      "duration": "200 days",
+      "location": "ISS Columbus Module",
+      "investigator": "Miller A",
+      "institution": "Kennedy Space Center",
+      "funding": "NASA Grant NNX24CD12G",
+      "relevanceScore": 94,
+      "links": {
+        "related": ["plant-growth-2", "grain-quality-27"],
+        "dependencies": ["crop-systems-5"],
+        "publications": [],
+        "datasets": []
+      },
+      "graphData": {
+        "size": 17,
+        "connections": 7
+      }
+    }
+  ]
+}

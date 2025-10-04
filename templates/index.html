@@ -1,0 +1,30 @@
+{% extends "components/base.html" %}
+
+{% block title %}Home - Space BioLens{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Space BioLens</h1>
+        <p class="hero-tagline">Ask questions about NASA's Space Biology Experiments</p>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Ask a question..." id="searchInput">
+                <button class="search-btn" id="searchBtn"><span class="search-icon">🔍</span></button>
+            </div>
+        </div>
+
+        <div class="quick-filters">
+            <button class="filter-pill" data-query="How do organisms adapt to microgravity?">Microgravity Effects</button>
+            <button class="filter-pill" data-query="What are the effects of space radiation on living organisms?">Radiation Effects</button>
+            <button class="filter-pill" data-query="How do plants grow in space?">Plant Growth</button>
+            <button class="filter-pill" data-query="What happens to animals in space?">Animal Studies</button>
+            <button class="filter-pill" data-query="What are the latest ISS experiments?">ISS Experiments</button>
+        </div>
+
+        <!-- Optional: Loading overlay to avoid null errors -->
+        <div id="loadingOverlay" class="loading-overlay" style="display:none;">Loading...</div>
+    </div>
+</section>
+{% endblock %}

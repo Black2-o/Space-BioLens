@@ -1,0 +1,146 @@
+{% extends "components/base.html" %}
+
+{% block title %}Researches - Space Biology Knowledge Engine{% endblock %}
+
+{% block content %}
+<main class="research-main">
+    <div class="container">
+        <!-- Page Header -->
+        <div class="research-header">
+            <h1 class="page-title">Research Experiments</h1>
+            <p class="page-subtitle">Explore NASA's Space Biology Research Database</p>
+            
+            <!-- Search Bar -->
+            <div class="research-search-container">
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        placeholder="Search experiments by title, organism, or mission..." 
+                        id="researchSearchInput"
+                    >
+                </div>
+            </div>
+        </div>
+
+        <!-- Layout -->
+        <div class="research-layout">
+            <!-- Filters Sidebar -->
+            <aside class="filters-sidebar" id="filters-sidebar">
+                <div class="filter-section">
+                    <h3 class="filter-title">Filters</h3>
+
+                    <!-- Category -->
+                    <div class="filter-group">
+                        <h4 class="filter-group-title">Category</h4>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="microbiology" class="category-filter">
+                            <span>Microbiology</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="plant-studies" class="category-filter">
+                            <span>Plant Studies</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="animal-studies" class="category-filter">
+                            <span>Animal Studies</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="human-studies" class="category-filter">
+                            <span>Human Studies</span>
+                        </label>
+                    </div>
+
+                    <!-- Organism -->
+                    <div class="filter-group">
+                        <h4 class="filter-group-title">Organism</h4>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="fungi" class="organism-filter">
+                            <span>Fungi</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="bacteria" class="organism-filter">
+                            <span>Bacteria</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="plants" class="organism-filter">
+                            <span>Plants</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="animals" class="organism-filter">
+                            <span>Animals</span>
+                        </label>
+                    </div>
+
+                    <!-- Mission -->
+                    <div class="filter-group">
+                        <h4 class="filter-group-title">Mission</h4>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="iss" class="mission-filter">
+                            <span>ISS</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="artemis" class="mission-filter">
+                            <span>Artemis</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="mars-simulation" class="mission-filter">
+                            <span>Mars Simulation</span>
+                        </label>
+                    </div>
+
+                    <!-- Status -->
+                    <div class="filter-group">
+                        <h4 class="filter-group-title">Status</h4>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="Completed" class="status-filter">
+                            <span>Completed</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="In Progress" class="status-filter">
+                            <span>In Progress</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="Planned" class="status-filter">
+                            <span>Planned</span>
+                        </label>
+                    </div>
+
+                    <button class="filter-reset-btn" id="resetFilters">Reset Filters</button>
+                </div>
+            </aside>
+
+            <!-- Research Content -->
+            <div class="research-content">
+                <!-- Controls -->
+                <div class="research-controls">
+                    <div class="results-count" id="resultsCount">Showing 0 experiments</div>
+                    <div class="sort-controls">
+                        <label for="sortSelect">Sort by:</label>
+                        <select id="sortSelect" class="sort-select">
+                            <option value="relevance">Relevance</option>
+                            <option value="year-desc">Year (Newest)</option>
+                            <option value="year-asc">Year (Oldest)</option>
+                            <option value="title">Title (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Results Grid -->
+                <div class="research-grid" id="researchGrid">
+                    <!-- Research cards dynamically inserted -->
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination" id="pagination">
+                    <!-- Pagination buttons dynamically inserted -->
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/researches.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Space BioLens{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="{{ url_for('index') }}" class="nav-brand">
+                <div class="nasa-logo">🚀</div>
+                <span class="brand-text">Space BioLens</span>
+            </a>
+            <div class="nav-menu">
+                <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('researches') }}" class="nav-link">Researches</a>
+                <a href="{{ url_for('knowledge_graph') }}" class="nav-link">Knowledge Graph</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Space BioLens</p>
+            <p>NASA Space Biology Knowledge Engine</p>
+        </div>
+    </footer>
+
+
+    <script defer src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

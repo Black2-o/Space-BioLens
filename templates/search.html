@@ -1,0 +1,67 @@
+{% extends "components/base.html" %}
+
+{% block title %}Search Results - Space BioLens{% endblock %}
+
+{% block content %}
+  <!-- Loading State -->
+  <div class="loading-overlay" id="loadingOverlay" style="display: flex; opacity: 1;">
+    <div class="loading-animation">
+      <div class="orbit">
+        <div class="satellite"></div>
+      </div>
+      <p class="loading-text">Analyzing space biology data...</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main search-main" id="searchContent" style="display: none;">
+    <!-- Query Header -->
+    <section class="search-header">
+      <div class="container">
+        <div class="query-display">
+          <h1 class="query-title" id="queryTitle"></h1>
+          <p class="query-subtitle">AI-Generated Summary from NASA Space Biology Database</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summarized Response -->
+    <section class="response-content">
+      <div class="container">
+        <div class="response-layout">
+          <!-- Main Summary -->
+          <div class="summary-section">
+            <div class="summary-card">
+              <h2 class="summary-title">Summary</h2>
+              <div class="summary-text" id="summaryText"></div>
+            </div>
+
+            <!-- Key Findings -->
+            <div class="findings-card">
+              <h3 class="findings-title">Key Findings</h3>
+              <ul class="findings-list" id="findingsList"></ul>
+            </div>
+          </div>
+
+          <!-- References Sidebar -->
+          <aside class="references-sidebar">
+            <div class="references-card">
+              <h3 class="references-title">References & Sources</h3>
+              <div class="references-list" id="referencesList"></div>
+            </div>
+
+            <!-- Related Topics -->
+            <div class="related-topics-card">
+              <h3 class="related-title">Related Topics</h3>
+              <div class="related-tags" id="relatedTags"></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/search.js') }}"></script>
+{% endblock %}

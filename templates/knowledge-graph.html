@@ -1,0 +1,110 @@
+{% extends "components/base.html" %}
+
+{% block title %}Knowledge Graph - Space Biology Knowledge Engine{% endblock %}
+
+{% block content %}
+<main class="knowledge-main">
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Page Header -->
+    <div class="knowledge-header">
+        <h1 class="page-title">Knowledge Graph</h1>
+        <p class="page-subtitle">
+            Explore the interconnected network of space biology experiments, research areas, 
+            and scientific discoveries through an interactive visualization.
+        </p>
+    </div>
+
+    <!-- Controls -->
+    <div class="knowledge-controls">
+        <div class="control-group">
+            <label for="filterSelect">Filter by:</label>
+            <select id="filterSelect" class="control-select">
+                <option value="all">All Experiments</option>
+                <option value="microbiology">Microbiology</option>
+                <option value="plant-studies">Plant Studies</option>
+                <option value="animal-studies">Animal Studies</option>
+                <option value="human-studies">Human Studies</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label for="layoutSelect">Layout:</label>
+            <select id="layoutSelect" class="control-select">
+                <option value="force">Force-Directed</option>
+                <option value="radial">Radial</option>
+                <option value="hierarchical">Hierarchical</option>
+            </select>
+        </div>
+
+        <button class="control-btn" id="resetViewBtn">Reset View</button>
+        <button class="control-btn" id="fullscreenBtn">Fullscreen</button>
+    </div>
+
+    <!-- Knowledge Graph Container -->
+    <div class="knowledge-container">
+        <!-- Legend Sidebar -->
+        <aside class="legend-sidebar" id="legend-sidebar">
+            <div class="legend-section">
+                <h3 class="legend-title">Legend</h3>
+                <div class="legend-items">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #10b981;"></div>
+                        <span>Plant Studies</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #f59e0b;"></div>
+                        <span>Animal Studies</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #8b5cf6;"></div>
+                        <span>Microbial Research</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ef4444;"></div>
+                        <span>Human Studies</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="legend-section">
+                <h3 class="legend-title">Select a Node</h3>
+                <p class="legend-description">
+                    Click on any experiment node to view detailed information and connections.
+                </p>
+            </div>
+
+            <!-- Node Details -->
+            <div class="node-details" id="nodeDetails" style="display: none;">
+                <h3 class="node-details-title" id="nodeTitle"></h3>
+                <p class="node-details-description" id="nodeDescription"></p>
+                <div class="node-details-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Status:</span>
+                        <span class="meta-value" id="nodeStatus"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Duration:</span>
+                        <span class="meta-value" id="nodeDuration"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Mission:</span>
+                        <span class="meta-value" id="nodeMission"></span>
+                    </div>
+                    <button class="view-link-btn research-card-btn" id="viewLinkBtn">View Publication</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Graph Visualization -->
+        <div class="graph-container" id="graphContainer">
+            <svg id="knowledgeGraph"></svg>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="{{ url_for('static', filename='js/knowledge-graph.js') }}"></script>
+{% endblock %}
