@@ -2,43 +2,60 @@ from flask import Flask, render_template, request, jsonify
 import os
 import json
 import re
-from sentence_transformers import SentenceTransformer
+import requests
 from qdrant_client import QdrantClient
 import google.generativeai as genai  # Gemini SDK
 from dotenv import load_dotenv
 
-
 # -------------------------
-# CONFIG (same as your config)
+# CONFIG
 # -------------------------
 load_dotenv()
 QDRANT_URL = os.getenv("QDRANT_URL")
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 GEMINI_KEY = os.getenv("GEMINI_KEY")
-
+HF_TOKEN = os.getenv("HUGGINGFACE_TOKEN")  # Hugging Face API token
 
 COLLECTION_NAME = "nasa_bio_papers"
 DATA_FILE = os.path.join(os.path.dirname(__file__), "data.json")
-
-EMBEDDING_MODEL = "all-mpnet-base-v2"
 TOP_K = 5
 
 # -------------------------
 # INIT
 # -------------------------
-embedder = SentenceTransformer(EMBEDDING_MODEL, device="cpu")  # or "cpu"
 qdrant = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY)
-
 genai.configure(api_key=GEMINI_KEY)
 gemini = genai.GenerativeModel("gemini-2.5-pro")
 
+HF_EMBEDDING_MODEL = "sentence-transformers/all-mpnet-base-v2"
+HF_API_URL = f"https://api-inference.huggingface.co/pipeline/feature-extraction/{HF_EMBEDDING_MODEL}"
+HEADERS = {"Authorization": f"Bearer {HF_TOKEN}"}
+
+# -------------------------
+# HF EMBEDDING FUNCTION
+# -------------------------
+def get_hf_embedding(text):
+    """Get embedding vector from Hugging Face Inference API"""
+    payload = {"inputs": text}
+    response = requests.post(HF_API_URL, headers=HEADERS, json=payload)
+    if response.status_code == 200:
+        embedding = response.json()
+        # HF returns list of token embeddings, take mean
+        if isinstance(embedding[0], list):
+            # average token embeddings
+            import numpy as np
+            return np.mean(embedding, axis=0).tolist()
+        return embedding
+    else:
+        print("HF API error:", response.text)
+        return [0.0] * 768  # fallback embedding
+
 # -------------------------
 # RAG + JSON OUTPUT FUNCTION
-# (same as your function)
 # -------------------------
 def query_space_biology(user_query, top_k=TOP_K):
     """Return JSON with summary, keyFindings, references, relatedTopics"""
-    query_embedding = embedder.encode(user_query).tolist()
+    query_embedding = get_hf_embedding(user_query)
     hits = qdrant.search(
         collection_name=COLLECTION_NAME,
         query_vector=query_embedding,
@@ -121,25 +138,20 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    # Render index.html
     return render_template("index.html")
 
 @app.route("/search")
 def search():
-    # Render the search page (with form or JS)
     return render_template("search.html")
 
 @app.route("/get_answer", methods=["POST"])
 def get_answer():
-    # You can also allow GET, but POST is recommended for requests carrying user input
-    data = request.get_json()  # expecting a JSON body { "query": "..." }
+    data = request.get_json()
     if not data or "query" not in data:
         return jsonify({"error": "No query provided"}), 400
-
     user_query = data["query"]
     result = query_space_biology(user_query)
     return jsonify(result)
-
 
 @app.route("/api/experiments")
 def api_experiments():
@@ -156,5 +168,4 @@ def knowledge_graph():
     return render_template("knowledge-graph.html", active="knowledge")
 
 if __name__ == "__main__":
-    # For development use debug=True
     app.run(host="0.0.0.0", debug=True)
