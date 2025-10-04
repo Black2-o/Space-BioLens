@@ -42,9 +42,10 @@ def get_hf_embedding(text):
         embedding = response.json()
         # HF returns list of token embeddings, take mean
         if isinstance(embedding[0], list):
-            # average token embeddings
-            import numpy as np
-            return np.mean(embedding, axis=0).tolist()
+            # simple average without numpy
+            dim = len(embedding[0])
+            avg = [sum(x[i] for x in embedding) / len(embedding) for i in range(dim)]
+            return avg
         return embedding
     else:
         print("HF API error:", response.text)
@@ -69,10 +70,7 @@ def query_space_biology(user_query, top_k=TOP_K):
         link = h.payload.get("link", "")
         preview = h.payload.get("text_preview", "")
         context_texts.append(f"{title}\n{preview}")
-        references.append({
-            "title": title,
-            "url": link
-        })
+        references.append({"title": title, "url": link})
 
     context = "\n\n".join(context_texts)
 
@@ -86,7 +84,7 @@ Question:
 {user_query}
 
 Instructions:
-- Summarize findings in detail it should be standard length .
+- Summarize findings in detail it should be standard length.
 - Provide 5 key findings as concise sentences.
 - Suggest 5 related topics (keywords, concepts, or themes).
 - Do NOT generate references; they will be attached separately.
@@ -134,7 +132,7 @@ Only fill in the values; maintain valid JSON.
 # -------------------------
 # FLASK SETUP
 # -------------------------
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static", template_folder="templates")
 
 @app.route("/")
 def index():
@@ -167,5 +165,9 @@ def researches():
 def knowledge_graph():
     return render_template("knowledge-graph.html", active="knowledge")
 
+# -------------------------
+# RUN APP
+# -------------------------
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)

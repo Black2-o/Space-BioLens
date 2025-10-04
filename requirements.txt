@@ -16,6 +16,7 @@ google-generativeai==0.8.5
 googleapis-common-protos==1.70.0
 grpcio==1.75.1
 grpcio-status==1.71.2
+gunicorn==23.0.0
 h11==0.16.0
 h2==4.3.0
 hpack==4.1.0
@@ -28,6 +29,7 @@ itsdangerous==2.2.0
 Jinja2==3.1.6
 MarkupSafe==3.0.3
 numpy==2.3.3
+packaging==25.0
 portalocker==3.2.0
 proto-plus==1.26.1
 protobuf==5.29.5
@@ -37,6 +39,7 @@ pydantic==2.11.10
 pydantic_core==2.33.2
 pyparsing==3.2.5
 python-dotenv==1.1.1
+pywin32==311
 qdrant-client==1.15.1
 requests==2.32.5
 rsa==4.9.1
