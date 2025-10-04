@@ -157,4 +157,4 @@ def knowledge_graph():
 
 if __name__ == "__main__":
     # For development use debug=True
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", debug=True)
