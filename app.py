@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import os
 import json
 import re
+import ast
 from qdrant_client import QdrantClient
 import google.generativeai as genai  # Gemini SDK
 from dotenv import load_dotenv
@@ -34,16 +35,21 @@ gemini = genai.GenerativeModel("gemini-2.5-pro")
 # Gradio client for embeddings
 gradio_client = Client(GRADIO_SPACE_NAME)
 
+
 # -------------------------
 # HELPER FUNCTION TO GET EMBEDDINGS
 # -------------------------
 def get_embedding(text):
     try:
         embedding = gradio_client.predict(text, fn_index=0)
+        # Convert string to list if needed
+        if isinstance(embedding, str):
+            embedding = ast.literal_eval(embedding)
         return embedding
     except Exception as e:
         print("Failed to get embedding:", e)
         return None
+
 
 # -------------------------
 # RAG + JSON OUTPUT FUNCTION
@@ -60,18 +66,46 @@ def query_space_biology(user_query, top_k=TOP_K):
             "relatedTopics": []
         }
 
-    hits = qdrant.search(
-        collection_name=COLLECTION_NAME,
-        query_vector=query_embedding,
-        limit=top_k
-    )
+    # -------------------------
+    # QDRANT SEARCH (auto-detect version)
+    # -------------------------
+    try:
+        if hasattr(qdrant, "search_points"):
+            # Newer versions (>=1.8)
+            hits_response = qdrant.search_points(
+                collection_name=COLLECTION_NAME,
+                vector=query_embedding,
+                limit=top_k,
+                with_payload=True
+            ).points
+        else:
+            # Older versions (<1.8)
+            hits_response = qdrant.search(
+                collection_name=COLLECTION_NAME,
+                query_vector=query_embedding,
+                limit=top_k
+            )
+    except Exception as e:
+        print("Qdrant search failed:", e)
+        return {
+            "query": user_query,
+            "summary": "Failed to fetch data from Qdrant.",
+            "keyFindings": [],
+            "references": [],
+            "relatedTopics": []
+        }
 
+    # -------------------------
+    # CONTEXT BUILDING
+    # -------------------------
     context_texts = []
     references = []
-    for h in hits:
-        title = h.payload.get("title", "")
-        link = h.payload.get("link", "")
-        preview = h.payload.get("text_preview", "")
+
+    for h in hits_response:
+        payload = getattr(h, "payload", {}) or {}
+        title = payload.get("title", "")
+        link = payload.get("link", "")
+        preview = payload.get("text_preview", "")
         context_texts.append(f"{title}\n{preview}")
         references.append({
             "title": title,
@@ -80,6 +114,9 @@ def query_space_biology(user_query, top_k=TOP_K):
 
     context = "\n\n".join(context_texts)
 
+    # -------------------------
+    # PROMPT BUILDING
+    # -------------------------
     prompt = f"""
 You are an expert NASA Space Biology assistant. Use ONLY the context below. Do NOT make up references.
 
@@ -106,6 +143,9 @@ Instructions:
 Only fill in the values; maintain valid JSON.
 """
 
+    # -------------------------
+    # GEMINI RESPONSE
+    # -------------------------
     response = gemini.generate_content(prompt)
 
     content = ""
@@ -117,11 +157,12 @@ Only fill in the values; maintain valid JSON.
         except Exception:
             content = ""
 
-    # Clean up Markdown JSON formatting if any
+    # Clean JSON format
     content = re.sub(r"^```json", "", content, flags=re.MULTILINE)
     content = re.sub(r"```$", "", content, flags=re.MULTILINE)
     content = content.strip()
 
+    # Parse JSON
     try:
         llm_json = json.loads(content)
     except Exception:
@@ -133,8 +174,10 @@ Only fill in the values; maintain valid JSON.
             "relatedTopics": []
         }
 
+    # Attach references
     llm_json["references"] = references
     return llm_json
+
 
 # -------------------------
 # FLASK SETUP
